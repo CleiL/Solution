@@ -7,5 +7,6 @@
         public string Email { get; set; } = default!;
         public string Phone { get; set; } = default!;
         public string CRM { get; set; } = default!;
+        public string Especialidade { get; set; } = default!;
     }
 }

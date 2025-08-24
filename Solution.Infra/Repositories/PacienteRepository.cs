@@ -64,6 +64,18 @@ namespace Solution.Infra.Repositories
             return count > 0;
         }
 
+        public async Task<bool> ExistsByEmailAsync(string email, Guid? excludeId = null, CancellationToken cancellationToken = default)
+        {
+            const string sql = """
+                select count(1)
+                from Pacientes
+                where Email = @email AND (@excludeId is null or PacienteId <> @excludeId);
+                """;
+            var count = await Conn.ExecuteScalarAsync<int>(new CommandDefinition(sql, new { email, excludeId }, Tx, cancellationToken: cancellationToken));
+            _logger.LogDebug("Verificado existência por Email {email}, excluindo {excludeId}: {exists}", email, excludeId, count > 0);
+            return count > 0;
+        }
+
         public async Task<IEnumerable<Paciente>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             const string sql = "select PacienteId, Nome, CPF, Email, Phone from Pacientes order by Nome;";

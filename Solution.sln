@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
 		001_create_pacientes.sql = 001_create_pacientes.sql
+		002_create_medico.sql = 002_create_medico.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Testes", "Solution.Testes\Solution.Testes.csproj", "{EC0CC18D-EE87-4125-83C7-7E94BC315245}"

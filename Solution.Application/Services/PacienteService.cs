@@ -36,6 +36,9 @@ namespace Solution.Application.Services
                     if (await _repository.ExistsByCpfAsync(entity.CPF.Trim(), null, cancellationToken))
                         throw new InvalidOperationException("CPF já cadastrado.");
 
+                    if (await _repository.ExistsByEmailAsync(entity.Email.Trim().ToLowerInvariant(), null, cancellationToken))
+                        throw new InvalidOperationException("Email já cadastrado.");
+
                     var paciente = new Paciente
                     {
                         PacienteId = Guid.NewGuid(),
@@ -96,7 +99,7 @@ namespace Solution.Application.Services
                 {
                     await uow.BeginAsync(cancellationToken);
                     var pacientes = await _repository.GetAllAsync(cancellationToken);
-                    await uow.CommitAsync(cancellationToken); // leitura: ok commitar para encerrar a transação
+                    await uow.CommitAsync(cancellationToken);
                     _logger.LogInformation("List retornou entidades");
                     return pacientes.Select(p => p.ToDto());
                 }
@@ -159,8 +162,15 @@ namespace Solution.Application.Services
                     if (cpfNovo is not null && !cpfNovo.Equals(paciente.CPF, StringComparison.Ordinal))
                     {
                         if (await _repository.ExistsByCpfAsync(cpfNovo, entity.PacienteId, cancellationToken))
-                            throw new InvalidOperationException("CPF já cadastrado em outro paciente.");
+                            throw new InvalidOperationException("CPF já cadastrado.");
                         paciente.CPF = cpfNovo;
+                    }
+
+                    if (emailNovo is not null && !emailNovo.Equals(paciente.Email, StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (await _repository.ExistsByEmailAsync(emailNovo, entity.PacienteId, cancellationToken))
+                            throw new InvalidOperationException("Email já cadastrado.");
+                        paciente.Email = emailNovo;
                     }
 
                     if (nomeNovo is not null) paciente.Nome = nomeNovo;
