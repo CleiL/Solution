@@ -3,6 +3,7 @@ using Serilog;
 using Serilog.Events;
 using Solution.Infra.Data.Dapper;
 using Solution.Infra.Data.DependencyInjection;
+using Solution.Infra.Data.Services;
 using Solution.Server.Infra;
 
 // Bootstrap do Serilog (console + arquivo)
@@ -41,6 +42,8 @@ try
     builder.Services.AddSwaggerGen();
 
     builder.Services.AddInfraData(builder.Configuration);
+
+    builder.Services.AddJwtAuthentication(builder.Configuration);
 
     SqlMapper.AddTypeHandler(new SqliteGuidTextHandler());
 

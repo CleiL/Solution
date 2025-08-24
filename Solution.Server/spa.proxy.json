@@ -1,0 +1,7 @@
+﻿{
+  "ServerUrl": "http://localhost:4200",
+  "LaunchCommand": "npx ng serve --port 4200 --open=false --host 0.0.0.0",
+  "WorkingDirectory": "../SolutionApp",
+  "MaxTimeoutInSeconds": 120,
+  "KeepRunning": true
+}

@@ -15,9 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{02EA681E-C7D
 	ProjectSection(SolutionItems) = preProject
 		001_create_pacientes.sql = 001_create_pacientes.sql
 		002_create_medico.sql = 002_create_medico.sql
+		003_create_consultas.sql = 003_create_consultas.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Testes", "Solution.Testes\Solution.Testes.csproj", "{EC0CC18D-EE87-4125-83C7-7E94BC315245}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "SolutionApp", "SolutionApp\SolutionApp.esproj", "{8BB6527B-C4B8-D76C-1C92-415C1875FE8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +48,12 @@ Global
 		{EC0CC18D-EE87-4125-83C7-7E94BC315245}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC0CC18D-EE87-4125-83C7-7E94BC315245}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC0CC18D-EE87-4125-83C7-7E94BC315245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BB6527B-C4B8-D76C-1C92-415C1875FE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BB6527B-C4B8-D76C-1C92-415C1875FE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BB6527B-C4B8-D76C-1C92-415C1875FE8B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8BB6527B-C4B8-D76C-1C92-415C1875FE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BB6527B-C4B8-D76C-1C92-415C1875FE8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BB6527B-C4B8-D76C-1C92-415C1875FE8B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

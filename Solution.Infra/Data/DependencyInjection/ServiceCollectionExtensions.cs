@@ -27,6 +27,8 @@ namespace Solution.Infra.Data.DependencyInjection
             services.AddScoped<IMedicoRepository, MedicoRepository>();
             services.AddScoped<IMedicoService, MedicoService>();
 
+            services.AddScoped<IConsultaRepository, ConsultaRepository>();
+
             return services;
         }
     }
