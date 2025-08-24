@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Infra", "Solution.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Server", "Solution.Server\Solution.Server.csproj", "{D6B8879B-7D3A-4FA2-BCDE-96628DD00341}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		001_create_pacientes.sql = 001_create_pacientes.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Testes", "Solution.Testes\Solution.Testes.csproj", "{EC0CC18D-EE87-4125-83C7-7E94BC315245}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +40,10 @@ Global
 		{D6B8879B-7D3A-4FA2-BCDE-96628DD00341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6B8879B-7D3A-4FA2-BCDE-96628DD00341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6B8879B-7D3A-4FA2-BCDE-96628DD00341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC0CC18D-EE87-4125-83C7-7E94BC315245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC0CC18D-EE87-4125-83C7-7E94BC315245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC0CC18D-EE87-4125-83C7-7E94BC315245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC0CC18D-EE87-4125-83C7-7E94BC315245}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

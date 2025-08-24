@@ -15,7 +15,7 @@ namespace Solution.Server.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            using var conn = _factory.Create();              // ← abre SQLite com PRAGMAs
+            using var conn = await _factory.Create();            
             var one = await conn.ExecuteScalarAsync<long>("select 1");
             return Ok(new { ok = (one == 1) });
         }

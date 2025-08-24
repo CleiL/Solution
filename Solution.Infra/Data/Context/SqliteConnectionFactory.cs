@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Options;
 using System.Data;
+using System.Threading;
 
 namespace Solution.Infra.Data.Context
 {
@@ -16,10 +17,10 @@ namespace Solution.Infra.Data.Context
                 throw new InvalidOperationException("Database:ConnectionString não configurada.");
         }
 
-        public IDbConnection Create()
+        public async Task<IDbConnection> Create(CancellationToken cancellationToken = default)
         {
             var connection = new SqliteConnection(_connectionString);
-            connection.Open();
+            await connection.OpenAsync(cancellationToken);
 
             using var command = connection.CreateCommand();
             command.CommandText = """
@@ -28,9 +29,10 @@ namespace Solution.Infra.Data.Context
                 PRAGMA synchronous = NORMAL;          
                 PRAGMA busy_timeout = 3000; -- aguarda 3 segundos se o banco estiver ocupado
             """;
-            command.ExecuteNonQuery();
+            _ = command.ExecuteNonQueryAsync(cancellationToken);
             
             return connection;
         }
+
     }
 }

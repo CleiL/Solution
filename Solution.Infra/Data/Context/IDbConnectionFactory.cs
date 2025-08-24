@@ -4,6 +4,6 @@ namespace Solution.Infra.Data.Context
 {
     public interface IDbConnectionFactory
     {
-        IDbConnection Create();
+        Task<IDbConnection> Create(CancellationToken cancellationToken = default);
     }
 }
